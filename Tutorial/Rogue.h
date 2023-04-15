@@ -9,6 +9,12 @@ Description:    Header for rogue tutorial
 
 #include <ncurses.h>
 #include <stdlib.h>
+#include <time.h>
+#include <math.h>
+
+// colour pairs
+#define VISIBLE_COLOR 1
+#define SEEN_COLOR 2
 
 //  macros for map dimensions
 #define MAP_HEIGHT 25
@@ -25,14 +31,28 @@ struct Position
 struct Tile
 {
     char ch;
-    bool walkable; 
+    bool walkable; // Used to check can the space be moved to
+    int color; // Color of rendered character in axis 0 (black) - 7 (white)
+    bool transparent;
+    bool visible; // 
+    bool seen; // Rendered by the engine after the tile leaves player's FoV
+};
+
+/*  Attributes of a dungeon */
+struct Room
+{
+    int roomHeight;
+    int roomWidth;
+    struct Position pos;
+    struct Position center;
 };
 
 /*  Struct to store positions and representations of "objects"  */
 struct Entity
 {
     struct Position pos; //x,y coordinates
-    char ch;      // what the player is represented as
+    char ch;      // what the object is represented as in ASCII form
+    int color; // color of rendered character in axis 0 (black) - 7 (white)
 };
 
 // Draw.c
@@ -54,6 +74,19 @@ void releaseMap();
 struct Entity* playerCreation(struct Position posStart);
 void inputHandling(int input);
 void playerMovement(struct Position newPos);
+
+// Room.c
+struct Room roomCreation(int y, int x, int height, int width);
+void addRoomToMap(struct Room room);
+void roomConnections(struct Position centerSelf, struct Position centerOther);
+
+// Fov.c
+void createFOV(struct Entity* player);
+void clearFOV(struct Entity* player);
+int getDistance(struct Position origin, struct Position target);
+bool isInMap(int y, int x);
+bool lineOfSight(struct Position origin, struct Position target);
+int getSign(int a);
 
 extern struct Entity* player;  // are externs good policy?
 extern struct Tile** map;
