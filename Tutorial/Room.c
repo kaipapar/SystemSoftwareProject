@@ -1,0 +1,73 @@
+/*
+@File    :   room.c
+@Time    :   14.04.2023 20:07:56
+@Author  :   Karri Korsu
+@Version :   1.0
+@Contact :   karri.korsu@edu.turkuamk.fi
+@Desc    :   None
+*/
+
+#include "Rogue.h"
+
+struct Room roomCreation(int y, int x, int height, int width)
+{
+    struct Room newRoom;
+
+    newRoom.pos.y = y;
+    newRoom.pos.x = x;
+    newRoom.roomHeight = height;
+    newRoom.roomWidth = width;
+    newRoom.center.y = y + (int)(height / 2);
+    newRoom.center.x = x + (int)(width / 2);
+
+    return newRoom;
+}
+
+void addRoomToMap(struct Room room)
+{
+    for (int y = room.pos.y; y < room.pos.y + room.roomHeight; y++)
+    {
+        for (int x = room.pos.x; x < room.pos.x + room.roomWidth; x++)
+        {
+            map[y][x].ch = '.';
+            map[y][x].walkable = true;
+            map[y][x].transparent = true;
+        }
+    }
+}
+
+void roomConnections(struct Position centerSelf, struct Position centerOther)
+{
+    struct Position temp;
+    
+    temp.x = centerSelf.x;
+    temp.y = centerSelf.y;
+
+    while (true)
+    {
+        if (abs((temp.x - 1) - centerOther.x) < abs(temp.x - centerOther.x))
+        {
+            temp.x--;
+        }
+        else if (abs((temp.x + 1) - centerOther.x) < abs(temp.x - centerOther.x))
+        {
+            temp.x++;
+        }
+        else if (abs((temp.y + 1) - centerOther.y) < abs(temp.y - centerOther.y))
+        {
+            temp.y++;
+        }
+        else if (abs((temp.y - 1) - centerOther.y) < abs(temp.y - centerOther.y))
+        {
+            temp.y--;
+        }
+        else
+        {
+            break;
+        }
+        
+        map[temp.y][temp.x].ch = '.';
+        map[temp.y][temp.x].walkable = true;
+        map[temp.y][temp.x].transparent = true;
+    }
+}

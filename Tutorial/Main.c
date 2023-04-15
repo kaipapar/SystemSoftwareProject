@@ -14,7 +14,9 @@ int main()
     struct Position posStart;
     
     setupCurses();
-   
+    
+    time_t t = 0;
+	srand((unsigned) time(&t));
     
     
     map = mapTileCreation();

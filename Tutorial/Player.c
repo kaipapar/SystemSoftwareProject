@@ -14,6 +14,7 @@ struct Entity* playerCreation(struct Position posStart)
 
     newPlayer->pos.y = posStart.y;
     newPlayer->pos.x = posStart.x;
+    newPlayer->color = COLOR_PAIR(VISIBLE_COLOR);
     newPlayer->ch = '@';
 
     return newPlayer;
@@ -50,7 +51,9 @@ void playerMovement(struct Position newPos)
 {
     if (map[newPos.y][newPos.x].walkable)
     {
+        clearFOV(player);
         player->pos.y = newPos.y;
         player->pos.x = newPos.x;
+        createFOV(player);
     }
 }

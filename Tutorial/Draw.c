@@ -15,14 +15,25 @@ void mapDrawing()
     {
         for (int x = 0; x < MAP_WIDTH; x++)
         {
-            mvaddch(y, x, map[y][x].ch);
+            if (map[y][x].visible)
+            {
+                mvaddch(y, x, map[y][x].ch | map[y][x].color);
+            }
+            else if (map[y][x].seen)
+            {
+                mvaddch(y, x, map[y][x].ch | COLOR_PAIR(SEEN_COLOR));
+            }
+            else
+            {
+                mvaddch(y, x, ' ');
+            }
         }
     }
 }
 
 void entityDrawing(struct Entity* entity)
 {
-    mvaddch(entity->pos.y, entity->pos.x, entity->ch);  //arguments (y,x,affected item)
+    mvaddch(entity->pos.y, entity->pos.x, entity->ch | entity->color);  //arguments (y,x,affected item)
 }
 
 void allDraw()

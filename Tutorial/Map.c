@@ -21,7 +21,11 @@ struct Tile** mapTileCreation()
         for (int x = 0; x < MAP_WIDTH; x++)
         {
             tiles[y][x].ch = '#';   // walls
+            tiles[y][x].color = COLOR_PAIR(VISIBLE_COLOR);
             tiles[y][x].walkable = false;
+            tiles[y][x].transparent = false;
+            tiles[y][x].visible = false;
+            tiles[y][x].seen = false;
         }
     }
     return tiles;
@@ -30,16 +34,37 @@ struct Tile** mapTileCreation()
 /*  Adding an area on the map to walk on    */
 struct Position mapSetup()
 {
-    struct Position posStart = {10, 50};
+    int y = 0;
+    int x = 0;
+    int height = 0;
+    int width = 0;
+    int n_rooms = 0;
 
-    for (int y = 5; y < 15; y++)
+    n_rooms = (rand() % 11) + 5;
+
+    struct Room* rooms = calloc(n_rooms, sizeof(struct Room));
+    struct Position posStart;
+
+
+    for (int i = 0; i < n_rooms; i++)
     {
-        for (int x = 40; x < 60; x++)
+        y = (rand() % (MAP_HEIGHT - 10)) + 1;
+        x = (rand() % (MAP_WIDTH - 20)) + 1;
+        height = (rand() % 7) + 3;
+        width = (rand() % 15) + 5;
+        rooms[i] = roomCreation(y, x, height, width);
+        addRoomToMap(rooms[i]);
+
+        if (i > 0)
         {
-            map[y][x].ch = '.';
-            map[y][x].walkable = true;
+            roomConnections(rooms[i-1].center, rooms[i].center);
         }
     }
+
+    posStart.y = rooms[0].center.y;
+    posStart.x = rooms[0].center.x;
+
+    free(rooms);
 
     return posStart;
 }
