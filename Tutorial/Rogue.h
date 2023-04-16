@@ -60,6 +60,8 @@ struct Entity
 void mapDrawing();
 void entityDrawing(struct Entity* entity);
 void allDraw();
+void subwinDraw();
+//void menuDraw();
 
 // Engine.c
 void setupCurses();

@@ -27,16 +27,16 @@ void inputHandling(int input)
 
     switch (input)
     {
-        case 'k':
+        case 'w':
             newPos.y--;
             break;
-        case 'j':
+        case 's':
             newPos.y++;
             break;
-        case 'h':
+        case 'a':
             newPos.x--;
             break;
-        case 'l':
+        case 'd':
             newPos.x++;
             break;
         default:
