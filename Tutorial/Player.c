@@ -16,7 +16,7 @@ struct Entity* playerCreation(struct Position posStart)
     newPlayer->pos.x = posStart.x;
     newPlayer->color = COLOR_PAIR(VISIBLE_COLOR);
     newPlayer->ch = '@';
-
+ 
     return newPlayer;
 }
 
@@ -27,16 +27,16 @@ void inputHandling(int input)
 
     switch (input)
     {
-        case 'w':
+        case 'k':
             newPos.y--;
             break;
-        case 's':
+        case 'j':
             newPos.y++;
             break;
-        case 'a':
+        case 'h':
             newPos.x--;
             break;
-        case 'd':
+        case 'l':
             newPos.x++;
             break;
         default:
