@@ -42,9 +42,8 @@ struct Position mapSetup()
 
     n_rooms = (rand() % 11) + 5;
 
-    struct Room* rooms = calloc(n_rooms, sizeof(struct Room));
+    struct Room *rooms = calloc(n_rooms, sizeof(struct Room));
     struct Position posStart;
-
 
     for (int i = 0; i < n_rooms; i++)
     {
@@ -57,7 +56,7 @@ struct Position mapSetup()
 
         if (i > 0)
         {
-            roomConnections(rooms[i-1].center, rooms[i].center);
+            roomConnections(rooms[i - 1].center, rooms[i].center);
         }
     }
 
