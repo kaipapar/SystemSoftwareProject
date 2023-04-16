@@ -42,4 +42,22 @@ void allDraw()
     clear();    // clears the screen before refreshing   
     mapDrawing();
     entityDrawing(player);
+    subwinDraw();
 }
+
+void subwinDraw()
+{
+        /*  Subwindow for printing game information */
+    WINDOW* subwindow = newwin(10,30,5,100);
+    refresh();
+    box(subwindow,0,0);
+    mvwprintw(subwindow, 1, 1, "Welcome to RoCue! \n RoCue is a roguelike game \n where you battle creeps!");
+    refresh();
+    wrefresh(subwindow);
+}
+
+/*
+void menuDraw()
+{
+
+}*/
