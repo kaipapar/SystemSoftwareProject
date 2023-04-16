@@ -36,6 +36,7 @@ void addRoomToMap(struct Room room)
     }
 }
 
+// Draws new room connections between the centers of 2 rooms and builds hallways on the map
 void roomConnections(struct Position centerSelf, struct Position centerOther)
 {
     struct Position temp;

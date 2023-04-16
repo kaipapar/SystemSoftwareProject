@@ -34,8 +34,8 @@ struct Tile
     char ch;
     bool walkable; // Used to check can the space be moved to
     int color; // Color of rendered character in axis 0 (black) - 7 (white)
-    bool transparent;
-    bool visible; // 
+    bool transparent; // Does the tile block FoV 
+    bool visible; // Is the tile visible to player
     bool seen; // Rendered by the engine after the tile leaves player's FoV
 };
 
@@ -60,8 +60,6 @@ struct Entity
 void mapDrawing();
 void entityDrawing(struct Entity* entity);
 void allDraw();
-void subwinDraw();
-//void menuDraw();
 
 // Engine.c
 void setupCurses();
