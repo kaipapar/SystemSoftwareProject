@@ -32,11 +32,11 @@ struct Position
 struct Tile 
 {
     char ch;
-    bool walkable; 
-    int color;
+    bool walkable; // Used to check can the space be moved to
+    int color; // Color of rendered character in axis 0 (black) - 7 (white)
     bool transparent;
-    bool visible;
-    bool seen;
+    bool visible; // 
+    bool seen; // Rendered by the engine after the tile leaves player's FoV
 };
 
 /*  Attributes of a dungeon */
@@ -52,8 +52,8 @@ struct Room
 struct Entity
 {
     struct Position pos; //x,y coordinates
-    char ch;      // what the player is represented as
-    int color;
+    char ch;      // what the object is represented as in ASCII form
+    int color; // color of rendered character in axis 0 (black) - 7 (white)
 };
 
 // Draw.c
