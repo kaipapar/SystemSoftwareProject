@@ -11,6 +11,7 @@ Description:    Header for rogue tutorial
 #include <stdlib.h>
 #include <time.h>
 #include <math.h>
+#include <string.h>
 
 // colour pairs
 #define VISIBLE_COLOR 1
@@ -28,7 +29,7 @@ struct Position
 };
 
 /*  Struct to store characteristics of tile "objects"   */
-struct Tile
+struct Tile 
 {
     char ch;
     bool walkable; 

@@ -15,6 +15,7 @@ void setupCurses()
     noecho();
     curs_set(0);
 
+
     if (has_colors())
     {
         start_color();
@@ -30,7 +31,28 @@ void gameLoop()
 
     createFOV(player);
     allDraw();
-    
+    /*
+    //printw("Welcome to RoCue!\n \tRoCue is a game where");
+    WINDOW* subwindow = newwin(MAP_HEIGHT,MAP_WIDTH,5,15);
+    box(subwindow,0,0);
+    char str[] = "Welcome to RoCue! \n RoCue is a game where";
+    mvwprintw(subwindow, 1, 1, "Welcome to RoCue! \n RoCue is a game where");
+    //mvprintw(MAP_HEIGHT / 2, MAP_WIDTH / 2, "%s", &str);
+    wrefresh(subwindow);
+    */
+    WINDOW* subwindow = newwin(20,30,5,100);
+
+    refresh();
+
+    box(subwindow,0,0);
+    mvwprintw(subwindow, 1, 1, "Welcome to RoCue! \n RoCue is a game where");
+
+
+    refresh();
+    wrefresh(subwindow);
+
+    getch();
+    delwin(subwindow);
     while(ch = getch())
     {
         if (ch == 'q')   // while q is not pressed create a 'character'
@@ -39,7 +61,7 @@ void gameLoop()
         }
        
         inputHandling(ch);
-        
+        //mvprintw(MAP_HEIGHT / 2, MAP_WIDTH / 2, "%s", &str);
         allDraw();
     }
 }

@@ -9,6 +9,7 @@
 
 #include "Rogue.h"
 
+
 void mapDrawing()
 {
     for (int y = 0; y < MAP_HEIGHT; y++)
