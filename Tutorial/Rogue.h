@@ -12,6 +12,7 @@ Description:    Header for rogue tutorial
 #include <time.h>
 #include <math.h>
 #include <string.h>
+#include <menu.h>
 
 // colour pairs
 #define VISIBLE_COLOR 1
@@ -60,8 +61,8 @@ struct Entity
 void mapDrawing();
 void entityDrawing(struct Entity* entity);
 void allDraw();
-void subwinDraw();
-//void menuDraw();
+void infoBoxDraw();
+void menuDraw();
 
 // Engine.c
 void setupCurses();
