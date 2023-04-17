@@ -16,6 +16,7 @@ Description:    Header for rogue tutorial
 #include <stdlib.h>
 #include <time.h>
 #include <math.h>
+#include <stdbool.h>
 
 // colour pairs
 #define VISIBLE_COLOR 1
