@@ -30,15 +30,15 @@ void gameLoop()
     int ch = 45; // init as '0'
 
     createFOV(player);
+    //menuDraw();
     allDraw();
     
     while(ch = getch())
-    {
-        if (ch == 'q')   // while q is not pressed create a 'character'
+    {       
+        if(ch == KEY_F(1))
         {
-            break;
+            quitGame();
         }
-       
         inputHandling(ch);
         allDraw();
     }
