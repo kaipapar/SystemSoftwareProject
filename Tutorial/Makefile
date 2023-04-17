@@ -1,14 +1,14 @@
 CC = gcc
-CFLAGS = -Wall -Wextra -std=c18 -lncurses -lm
+CFLAGS = -Wall -Wextra -std=c18 -lncurses -lmenu -lm
 SOURCES = *.c
 
-all: Rogue run clean
+all: Rogue #run clean
 
 Rogue: 
 		$(CC) $(SOURCES) $(CFLAGS) -o Rogue
 
-run:
-		./Rogue
+#run:
+#		./Rogue
 
 clean:
 		rm Rogue

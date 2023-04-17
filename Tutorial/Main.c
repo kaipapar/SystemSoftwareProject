@@ -18,13 +18,14 @@ int main()
     time_t t = 0;
 	srand((unsigned) time(&t));
     
-    
     map = mapTileCreation();
 
     posStart = mapSetup();    
     player = playerCreation(posStart);
+    menuDraw();
 
-    gameLoop();
+    
+    //gameLoop();
 
     quitGame();
 

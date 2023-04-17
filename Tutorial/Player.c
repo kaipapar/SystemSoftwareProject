@@ -16,7 +16,7 @@ struct Entity* playerCreation(struct Position posStart)
     newPlayer->pos.x = posStart.x;
     newPlayer->color = COLOR_PAIR(VISIBLE_COLOR);
     newPlayer->ch = '@';
-
+ 
     return newPlayer;
 }
 
