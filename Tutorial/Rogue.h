@@ -7,11 +7,17 @@ Description:    Header for rogue tutorial
 #ifndef ROGUE_H
 #define ROGUE_H
 
+#ifdef __unix__
 #include <ncurses.h>
+#else
+#include <curses.h>
+#endif
+
 #include <stdlib.h>
 #include <time.h>
 #include <math.h>
 #include <string.h>
+#include <stdbool.h>
 #include <menu.h>
 
 // colour pairs
@@ -35,8 +41,8 @@ struct Tile
     char ch;
     bool walkable; // Used to check can the space be moved to
     int color; // Color of rendered character in axis 0 (black) - 7 (white)
-    bool transparent;
-    bool visible; // 
+    bool transparent; // Does the tile block FoV 
+    bool visible; // Is the tile visible to player
     bool seen; // Rendered by the engine after the tile leaves player's FoV
 };
 
