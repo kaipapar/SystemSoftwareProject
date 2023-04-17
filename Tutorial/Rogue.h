@@ -7,11 +7,17 @@ Description:    Header for rogue tutorial
 #ifndef ROGUE_H
 #define ROGUE_H
 
+#ifdef __unix__
 #include <ncurses.h>
+#else
+#include <curses.h>
+#endif
+
 #include <stdlib.h>
 #include <time.h>
 #include <math.h>
 #include <string.h>
+#include <stdbool.h>
 
 // colour pairs
 #define VISIBLE_COLOR 1
