@@ -59,7 +59,7 @@ void infoBoxDraw()
                             "Quit - F1 \n"
                             "Interact - Q \n"
                             "Inventory - E";
-    mvwprintw(subwindow, 1, 1, "%s", &hintBoxContent);
+    //mvwprintw(subwindow, 1, 1, "%s", &hintBoxContent);
     refresh();
     wrefresh(subwindow);
 }
