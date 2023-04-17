@@ -30,17 +30,19 @@ void gameLoop()
     int ch = 45; // init as '0'
 
     createFOV(player);
-    //menuDraw();
     allDraw();
     
     while(ch = getch())
     {       
-        if(ch == KEY_F(1))
-        {
-            quitGame();
-        }
         inputHandling(ch);
         allDraw();
+        if(ch == KEY_F(1))
+        {
+            //break;
+            //quitGame();
+            endwin();
+        }
+        
     }
 }
 
