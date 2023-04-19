@@ -37,12 +37,25 @@ void entityDrawing(struct Entity* entity)
     mvaddch(entity->pos.y, entity->pos.x, entity->ch | entity->color);  //arguments (y,x,affected item)
 }
 
-void allDraw()
+void coinDrawing()
 {
-    clear();    // clears the screen before refreshing   
-    mapDrawing();
+    for(int i = 0; i < COIN_COUNT; i++)
+    {
+        if ((coinArray + i)->visible == true)
+        {
+            mvaddch((coinArray + i) -> pos.y, (coinArray + i) -> pos.x, (coinArray + i) -> ch | (coinArray + i)-> color);
+        }
+
+    }
+}
+
+void allDraw(struct Entity* entity, int entitySize)
+{
+    clear();    // clears the screen before refreshing
+    mapDrawing(); // renders the game map
     entityDrawing(player);
-    infoBoxDraw();
+    coinDrawing(); // temporary testing function (replace later)
+    infoBoxDraw(); // UI element rendering for controls info
 }
 
 void infoBoxDraw()

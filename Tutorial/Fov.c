@@ -26,12 +26,20 @@ void createFOV(struct Entity* player)
             target.y = y;
             target.x = x;
             distance = getDistance(player->pos, target);
+            //printf("Target y: %d, target x: %d, player y, player x, distance");
 
             if (distance < radius && isInMap(y, x) && lineOfSight(player->pos, target))
             {
                 map[y][x].visible = true;
                 map[y][x].seen = true;
-            }
+                for (int i = 0; i < COIN_COUNT; i++)
+                {
+                    if ((coinArray + i)->pos.y == y && (coinArray + i)->pos.x == x) 
+                    {   //if there is a coin at these x,y coordinates
+                        (coinArray + i)->visible = true;
+                    }
+                }     
+            }/*  Yes I know there is 3 nested for loops  */
         }
     }
 }
@@ -49,8 +57,25 @@ void clearFOV(struct Entity* player)
             if (isInMap(y,x))
             {
                 map[y][x].visible = false;
+                for (int i = 0; i < COIN_COUNT; i++)
+                {/*
+                    if (strcmp((coinArray + i)->pos.y, y) == 0 && strcmp((coinArray + i)->pos.x, x) == 0)
+                    {   //if there is a coin at these x,y coordinates
+                        (coinArray + i)->visible = false;
+                    }*/
+                    if ((coinArray + i)->pos.y == y && (coinArray + i)->pos.x == x)
+                    {
+                        (coinArray + i)->visible = false;
+                    }
+
+                }   
             }
         }
+    }
+    for (int i = 0; i < COIN_COUNT; i++)
+    {
+        if ((coinArray + i)->pos.y)
+        (coinArray + i)->visible = false;
     }
 }
 

@@ -8,6 +8,9 @@ Description:    main file for rogue tutorial
 
 struct Entity* player;
 struct Tile** map;
+struct Entity* coinArray;
+
+
 
 int main()
 {   
@@ -19,10 +22,13 @@ int main()
 	srand((unsigned) time(&t));
     
     map = mapTileCreation();
+    posStart = mapSetup();  
 
-    posStart = mapSetup();    
     player = playerCreation(posStart);
-    menuDraw();
+
+    coinArray = coinCreation();
+
+    menuDraw(); // --> Engine.c/Gameloop starts
 
     
     //gameLoop();

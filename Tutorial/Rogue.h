@@ -28,6 +28,9 @@ Description:    Header for rogue tutorial
 #define MAP_HEIGHT 25
 #define MAP_WIDTH 100
 
+//  macros for item amounts
+#define COIN_COUNT 5
+
 /*  Struct to store positions of "objects"  */
 struct Position
 {
@@ -61,6 +64,10 @@ struct Entity
     struct Position pos; //x,y coordinates
     char ch;      // what the object is represented as in ASCII form
     int color; // color of rendered character in axis 0 (black) - 7 (white)
+
+     /*  NOTE THIS IS TEMPORARY, POSSIBLY...!    */
+    bool visible;
+    bool transparent;
 };
 
 // Draw.c
@@ -98,7 +105,13 @@ bool isInMap(int y, int x);
 bool lineOfSight(struct Position origin, struct Position target);
 int getSign(int a);
 
+// Items.c
+struct Entity* coinCreation();
+
 extern struct Entity* player;  // are externs good policy?
 extern struct Tile** map;
+
+extern struct Entity* coinArray;
+
 
 #endif

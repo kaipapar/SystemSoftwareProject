@@ -28,8 +28,12 @@ void setupCurses()
 void gameLoop()
 {
     int ch = 45; // init as '0'
-
+/*
+    int coinAmount = (rand() % 4) + 2;
+    struct Entity* coins = coinCreation(coinAmount);
+*/
     createFOV(player);
+    //menuDraw();
     allDraw();
     
     while(ch = getch())
@@ -42,7 +46,8 @@ void gameLoop()
             //quitGame();
             endwin();
         }
-        
+        inputHandling(ch);
+        allDraw();
     }
 }
 

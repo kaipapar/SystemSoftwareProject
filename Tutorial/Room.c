@@ -32,6 +32,7 @@ void addRoomToMap(struct Room room)
             map[y][x].ch = '.';
             map[y][x].walkable = true;
             map[y][x].transparent = true;
+           // map[y][x].coin = true
         }
     }
 }
