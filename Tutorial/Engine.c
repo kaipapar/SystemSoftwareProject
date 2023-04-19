@@ -36,14 +36,14 @@ void gameLoop()
     //menuDraw();
     allDraw();
     
-    while(ch = getch())
+    while(true)
     {       
         inputHandling(ch);
         allDraw();
         if(ch == KEY_F(1))
         {
-            //break;
-            //quitGame();
+            break;
+            quitGame();
             endwin();
         }
         inputHandling(ch);
@@ -55,4 +55,5 @@ void quitGame()
 {
     endwin();
     free(player);
+    releaseMap();
 }

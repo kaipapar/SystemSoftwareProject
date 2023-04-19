@@ -9,8 +9,10 @@ Description:    Header for rogue tutorial
 
 #ifdef __unix__
 #include <ncurses.h>
+#include <menu.h>
 #else
 #include <curses.h>
+#include "WINmenu.h"
 #endif
 
 #include <stdlib.h>
@@ -18,11 +20,12 @@ Description:    Header for rogue tutorial
 #include <math.h>
 #include <string.h>
 #include <stdbool.h>
-#include <menu.h>
+
 
 // colour pairs
 #define VISIBLE_COLOR 1
 #define SEEN_COLOR 2
+#define COIN_COLOR 1
 
 //  macros for map dimensions
 #define MAP_HEIGHT 25
@@ -70,6 +73,17 @@ struct Entity
     bool transparent;
 };
 
+
+/*      PLAYER STRUCT HERE :::  */
+
+/*      ITEM STRUCT HERE :::    
+INHERITS FROM ENTITY AND TILE
+
+*/
+
+
+
+
 // Draw.c
 void mapDrawing();
 void entityDrawing(struct Entity* entity);
@@ -81,6 +95,7 @@ void menuDraw();
 void setupCurses();
 void gameLoop();
 void quitGame();
+
 
 // Map.c
 struct Tile** mapTileCreation();

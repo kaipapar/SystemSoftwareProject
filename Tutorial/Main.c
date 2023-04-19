@@ -30,9 +30,6 @@ int main()
 
     menuDraw(); // --> Engine.c/Gameloop starts
 
-    
-    //gameLoop();
-
     quitGame();
 
     return 0;

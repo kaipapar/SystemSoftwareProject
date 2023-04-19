@@ -7,8 +7,8 @@ all: Rogue #run clean
 Rogue: 
 		$(CC) $(SOURCES) $(CFLAGS) -o Rogue
 
-#run:
-#		./Rogue
+run:
+		./Rogue
 
 clean:
 		rm Rogue

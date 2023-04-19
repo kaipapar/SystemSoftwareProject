@@ -65,14 +65,14 @@ void infoBoxDraw()
     refresh();
     box(subwindow,0,0);
 
-    char hintBoxContent[] = "Welcome to RoCue! \n" 
-                            "RoCue is a roguelike game \n"
+    char hintBoxContent[] = "RoCue is a roguelike game \n"
                             "where you battle creeps! \n"
                             "Movement - WASD \n"
                             "Quit - F1 \n"
                             "Interact - Q \n"
                             "Inventory - E";
-    //mvwprintw(subwindow, 1, 1, "%s", &hintBoxContent);
+    mvwprintw(subwindow, 1, 1, "Welcome to RoCue\n %s \n Y: %d, X: %d", &hintBoxContent,player->pos.y, player->pos.x);
+    //mvwprintw(subwindow,1,1,"Player y position: %d, x position: %d",);
     refresh();
     wrefresh(subwindow);
 }

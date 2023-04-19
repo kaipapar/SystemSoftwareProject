@@ -70,6 +70,7 @@ struct Position mapSetup()
     return posStart;
 }
 
+// Frees the map array from memory
 void releaseMap()
 {
     for (int y = 0; y < MAP_HEIGHT; y++)

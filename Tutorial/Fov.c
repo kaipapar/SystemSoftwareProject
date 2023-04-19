@@ -13,7 +13,7 @@ void createFOV(struct Entity* player)
     int y = 0;
     int x = 0;
     int distance = 0;
-    int radius = 15;
+    int radius = 15; // draw distance of the player
     struct Position target;
 
     map[player->pos.y][player->pos.x].visible = true;

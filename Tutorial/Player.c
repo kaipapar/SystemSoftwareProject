@@ -7,7 +7,7 @@
 @Desc    :   None
 */
 #include "Rogue.h"
-
+/*                       CREATE CUSTOM  STRUCT FOR PLAYER WHICH INHERITS ENTITY STRUCT       */
 struct Entity* playerCreation(struct Position posStart)
 {
     struct Entity* newPlayer = calloc(1, sizeof(struct Entity)); //correct use of calloc?
@@ -27,18 +27,21 @@ void inputHandling(int input)
 
     switch (input)
     {
-        case 'k':
+        case 'w':
             newPos.y--;
             break;
-        case 'j':
+        case 's':
             newPos.y++;
             break;
-        case 'h':
+        case 'a':
             newPos.x--;
             break;
-        case 'l':
+        case 'd':
             newPos.x++;
-            break;
+            break;/*
+        case KEY_F(1):
+            quitGame();
+            break;*/
         default:
             break;
     }
