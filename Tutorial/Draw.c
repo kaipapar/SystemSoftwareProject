@@ -43,7 +43,7 @@ void coinDrawing()
     {
         if ((coinArray + i)->visible == true)
         {
-            mvaddch((coinArray + i) -> pos.y, (coinArray + i) -> pos.x, (coinArray + i) -> ch | (coinArray + i)-> color);
+        mvaddch((coinArray + i) -> pos.y, (coinArray + i) -> pos.x, (coinArray + i) -> ch | (coinArray + i)-> color);
         }
 
     }

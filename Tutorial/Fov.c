@@ -72,11 +72,7 @@ void clearFOV(struct Entity* player)
             }
         }
     }
-    for (int i = 0; i < COIN_COUNT; i++)
-    {
-        if ((coinArray + i)->pos.y)
-        (coinArray + i)->visible = false;
-    }
+
 }
 
 int getDistance(struct Position origin, struct Position target)

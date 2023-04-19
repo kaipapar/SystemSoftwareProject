@@ -38,8 +38,8 @@ void gameLoop()
     
     while(true)
     {       
-        inputHandling(ch);
-        allDraw();
+
+        ch = getch();
         if(ch == KEY_F(1))
         {
             break;
