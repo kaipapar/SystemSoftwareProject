@@ -49,7 +49,7 @@ void coinDrawing()
     }
 }
 
-void allDraw(struct Entity* entity, int entitySize)
+void allDraw()
 {
     clear();    // clears the screen before refreshing
     mapDrawing(); // renders the game map

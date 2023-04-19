@@ -38,10 +38,10 @@ void inputHandling(int input)
             break;
         case 'd':
             newPos.x++;
-            break;/*
+            break;
         case KEY_F(1):
             quitGame();
-            break;*/
+            break;
         default:
             break;
     }
