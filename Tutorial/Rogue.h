@@ -123,10 +123,14 @@ int getSign(int a);
 // Items.c
 struct Entity* coinCreation();
 
+// Enemy.c
+struct Entity* enemyCreation();
+
 extern struct Entity* player;  // are externs good policy?
 extern struct Tile** map;
 
 extern struct Entity* coinArray;
+extern struct Entity* orc;
 
 
 #endif

@@ -39,7 +39,7 @@ void gameLoop()
     while(true)
     {       
 
-        ch = getch();
+        ch = getch();   
         if(ch == KEY_F(1))
         {
             break;

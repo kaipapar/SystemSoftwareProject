@@ -38,7 +38,12 @@ void createFOV(struct Entity* player)
                     {   //if there is a coin at these x,y coordinates
                         (coinArray + i)->visible = true;
                     }
-                }     
+                }
+
+                if (orc -> pos.y == y && orc -> pos.x == x)
+                {
+                    orc -> visible = true;
+                }
             }/*  Yes I know there is 3 nested for loops  */
         }
     }
@@ -57,6 +62,8 @@ void clearFOV(struct Entity* player)
             if (isInMap(y,x))
             {
                 map[y][x].visible = false;
+
+                /*  clear fov of coins  */
                 for (int i = 0; i < COIN_COUNT; i++)
                 {/*
                     if (strcmp((coinArray + i)->pos.y, y) == 0 && strcmp((coinArray + i)->pos.x, x) == 0)
@@ -67,8 +74,13 @@ void clearFOV(struct Entity* player)
                     {
                         (coinArray + i)->visible = false;
                     }
-
                 }   
+
+                /*  Clear fov of orc */
+                if (orc -> pos.y == y && orc -> pos.x == x)
+                {
+                    orc -> visible = false;
+                }
             }
         }
     }

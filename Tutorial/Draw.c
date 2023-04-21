@@ -34,7 +34,11 @@ void mapDrawing()
 
 void entityDrawing(struct Entity* entity)
 {
-    mvaddch(entity->pos.y, entity->pos.x, entity->ch | entity->color);  //arguments (y,x,affected item)
+    if (entity -> visible == true)
+    {
+        mvaddch(entity->pos.y, entity->pos.x, entity->ch | entity->color);  
+        //arguments (y,x,affected item)
+    }
 }
 
 void coinDrawing()
@@ -55,6 +59,7 @@ void allDraw()
     mapDrawing(); // renders the game map
     entityDrawing(player);
     coinDrawing(); // temporary testing function (replace later)
+    entityDrawing(orc); // orc is similar to player
     infoBoxDraw(); // UI element rendering for controls info
 }
 

@@ -9,6 +9,7 @@ Description:    main file for rogue tutorial
 struct Entity* player;
 struct Tile** map;
 struct Entity* coinArray;
+struct Entity* orc;
 
 
 
@@ -27,6 +28,8 @@ int main()
     player = playerCreation(posStart);
 
     coinArray = coinCreation();
+    
+    orc = enemyCreation();
 
     menuDraw(); // --> Engine.c/Gameloop starts
 
