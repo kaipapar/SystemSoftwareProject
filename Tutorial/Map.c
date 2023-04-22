@@ -27,6 +27,7 @@ struct Tile** mapTileCreation()
             tiles[y][x].transparent = false;
             tiles[y][x].visible = false;
             tiles[y][x].seen = false;
+            tiles[y][x].found = 0;
         }
     }
     return tiles;

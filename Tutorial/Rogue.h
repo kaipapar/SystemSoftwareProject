@@ -50,6 +50,7 @@ struct Tile
     bool transparent; // Does the tile block FoV 
     bool visible; // Is the tile visible to player
     bool seen; // Rendered by the engine after the tile leaves player's FoV
+    int found; // Needed for pathfinding
 };
 
 /*  Attributes of a dungeon */

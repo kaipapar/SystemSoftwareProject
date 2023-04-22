@@ -18,7 +18,7 @@ struct Room roomCreation(int y, int x, int height, int width)
     newRoom.roomHeight = height;
     newRoom.roomWidth = width;
     newRoom.center.y = y + (int)(height / 2);
-    newRoom.center.x = x + (int)(width / 2);
+    newRoom.center.x = x + (int)(width / 2);    
 
     return newRoom;
 }

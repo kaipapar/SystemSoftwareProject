@@ -40,5 +40,59 @@ struct Entity* enemyCreation()
     }
     return orc;
 }
+/*
+void enemyPathFinding()
+{     http://www.roguebasin.com/index.php/Quick_Pathfinding_in_a_Dungeon  
+      Find path between enemy and player  
+    //  Using BFS
+    int originX = orc -> pos.x;
+    int originY = orc -> pos.y;
+
+    int targetX = player -> pos.x;
+    int targetY = player -> pos.y;
+
+    int weight = 0;
+
+    int currentX = 0;
+    int currentY = 0;
+
+    // need for 'selected' variable ? 
+
+    // mark adjacent positions with weight + 1
+    // adjacent --> current; --y, --x, ++x, ++y
+    while (true)
+    {
+        if (currentX-- == 0 && map[currentY][currentX--].walkable == true)
+        {   // operate on (x-1,y)
+            
+        }
+        else if (currentX++ == 0 && map[currentY][currentX++].walkable == true)
+        {   //operate on (x+1,y)
+
+        }
+        else if (currentY++ == 0 && map[currentY++][currentX].walkable == true)
+        {   // operate on (x,y+1)
+
+        }
+        else if (currentY-- == 0 && map[currentY--][currentX].walkable == true)
+        {   // operate on (x,y-1)
+        
+        }
+        else if ()
+        {
+
+        }
+
+
+        // once player has been found 
+        if (currentX == targetX && currentY == targetY)
+        {
+            break;
+        }
+    }
+
+}
+*/
+
 
 
