@@ -6,7 +6,7 @@
 @Contact :   karri.korsu@edu.turkuamk.fi
 @Desc    :   None
 */
-
+/*
 #include "Rogue.h"
 
 #define STACKLIMIT 100
@@ -16,7 +16,7 @@ int inp_array[STACKLIMIT] = {0};
 void push();
 void pop();
 void show();
-/*
+
 int main()
 {
     int choice;
@@ -46,7 +46,7 @@ int main()
             printf("\nInvalid choice!!");
         }
     }
-}*/
+}
 
 void push()
 {
@@ -106,3 +106,4 @@ int top()
 {
     
 }
+*/
