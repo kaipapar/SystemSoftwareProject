@@ -19,7 +19,7 @@ struct Stack* stackCreation()
 
 
 void push(struct Stack *stack, struct Tile tile)
-{
+{   
     if (isFull(stack))
     {
         printf("\nOverflow!!");

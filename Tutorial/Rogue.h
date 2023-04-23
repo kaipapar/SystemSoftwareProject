@@ -35,7 +35,7 @@ Description:    Header for rogue tutorial
 #define COIN_COUNT 5
 
 // macro for stack datatype
-#define STACKLIMIT 200
+//#define STACKLIMIT 200    !!!
 
 /*  Struct to store positions of "objects"  */
 struct Position
@@ -87,17 +87,18 @@ INHERITS FROM ENTITY AND TILE
 */
 
 /*  Stack for pathfinding   */
+/*
 struct Stack
 {
     int top;
     struct Tile data[STACKLIMIT];   //Stack stores Tile 'objects' 
 };
-
+*/
 
 // Draw.c
 void mapDrawing();
 void entityDrawing(struct Entity* entity);
-void coinDrawing(struct Entity* entity, int entitySize);
+//void coinDrawing(struct Entity* entity, int entitySize);  !!!
 void allDraw();
 void infoBoxDraw();
 void menuDraw();
