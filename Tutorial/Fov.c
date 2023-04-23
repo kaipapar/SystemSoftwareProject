@@ -34,13 +34,13 @@ void createFOV(struct Entity* player)
                 map[y][x].seen = true;
                 for (int i = 0; i < COIN_COUNT; i++)
                 {
-                    if ((coinArray + i)->pos.y == y && (coinArray + i)->pos.x == x) 
+                    if ((coinArray + i)->pos.y == y && (coinArray + i)->pos.x == x && (coinArray + i)->collected == false) 
                     {   //if there is a coin at these x,y coordinates
                         (coinArray + i)->visible = true;
                     }
                 }
 
-                if (orc -> pos.y == y && orc -> pos.x == x)
+                if (orc -> pos.y == y && orc -> pos.x == x && orc->collected == false)
                 {
                     orc -> visible = true;
                 }

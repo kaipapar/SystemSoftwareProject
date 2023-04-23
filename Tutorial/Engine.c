@@ -48,9 +48,26 @@ void gameLoop()
         }
         inputHandling(ch);
         allDraw();
+        /*
+        if (gameOver())
+        {
+            break;
+        }*/
     }
 }
-
+/*
+bool gameOver()
+{
+    if (player->points < 0)
+    {
+        return true;
+    }
+    else
+    {
+        return false;
+    }
+}
+*/
 void quitGame()
 {
     endwin();

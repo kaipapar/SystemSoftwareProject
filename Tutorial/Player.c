@@ -17,6 +17,8 @@ struct Entity* playerCreation(struct Position posStart)
     newPlayer->color = COLOR_PAIR(VISIBLE_COLOR);
     newPlayer->ch = '@';
     newPlayer->visible = true;
+    newPlayer->points = 0;
+    newPlayer->value = 0;
  
     return newPlayer;
 }
@@ -43,6 +45,11 @@ void inputHandling(int input)
         case KEY_F(1):
             quitGame();
             break;
+        case 'i':
+            // interact
+            interact();
+            break;
+        
         default:
             break;
     }
@@ -60,4 +67,32 @@ void playerMovement(struct Position newPos)
         player->pos.x = newPos.x;
         createFOV(player);
     }
+}
+
+void interact()
+{
+    int dice = 0;
+    for (int i = 0; i < COIN_COUNT+1; i++)
+    {
+        if (player->pos.y == (coinArray + i)->pos.y && player->pos.x == (coinArray + i)->pos.x)
+        {
+            player->points += (coinArray + i)->value;
+            (coinArray + i)-> visible = false;
+            (coinArray + i)-> collected = true;
+        }
+        else if (player->pos.y == orc->pos.y && player->pos.x == orc->pos.x && orc->collected == false)
+        {
+            dice = rand() % 20;
+            if (dice < 10)
+            {
+                player->points -= 100;
+            }
+            else
+            {
+                orc->points -= 300;
+            }
+            orc->collected = true;
+        }
+    }
+
 }

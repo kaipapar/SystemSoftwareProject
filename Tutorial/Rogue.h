@@ -34,6 +34,9 @@ Description:    Header for rogue tutorial
 //  macros for item amounts
 #define COIN_COUNT 5
 
+// macro for queue size
+#define STACKLIMIT 100
+
 /*  Struct to store positions of "objects"  */
 struct Position
 {
@@ -51,6 +54,7 @@ struct Tile
     bool visible; // Is the tile visible to player
     bool seen; // Rendered by the engine after the tile leaves player's FoV
     int found; // Needed for pathfinding
+    bool visited; // needed for pathfinding
 };
 
 /*  Attributes of a dungeon */
@@ -69,9 +73,19 @@ struct Entity
     char ch;      // what the object is represented as in ASCII form
     int color; // color of rendered character in axis 0 (black) - 7 (white)
 
-     /*  NOTE THIS IS TEMPORARY, POSSIBLY...!    */
     bool visible;
     bool transparent;
+    int points;
+    int value;
+    bool collected;
+};
+
+/*  Queue struct for pathfinding    */
+struct Queue
+{
+    int end;
+    int front;
+    struct Tile data[STACKLIMIT];
 };
 
 
@@ -107,6 +121,7 @@ void releaseMap();
 struct Entity* playerCreation(struct Position posStart);
 void inputHandling(int input);
 void playerMovement(struct Position newPos);
+void interact();
 
 // Room.c
 struct Room roomCreation(int y, int x, int height, int width);
@@ -126,6 +141,16 @@ struct Entity* coinCreation();
 
 // Enemy.c
 struct Entity* enemyCreation();
+
+// Queue.c
+struct Queue* queueCreation();
+void enqueue(struct Queue *queue, struct Tile tile);
+struct Tile dequeue(struct Queue *queue);
+struct Tile end(struct Queue *queue);
+bool isEmpty(struct Queue *queue);
+bool isFull(struct Queue *queue);
+void visit(struct Queue *queue);
+
 
 extern struct Entity* player;  // are externs good policy?
 extern struct Tile** map;
