@@ -34,32 +34,23 @@ void mapDrawing()
 
 void entityDrawing(struct Entity* entity)
 {
-    if (entity -> visible == true)
-    {
-        mvaddch(entity->pos.y, entity->pos.x, entity->ch | entity->color);  
-        //arguments (y,x,affected item)
-    }
+    mvaddch(entity->pos.y, entity->pos.x, entity->ch | entity->color);  //arguments (y,x,affected item)
 }
 
-void coinDrawing()
+void coinDrawing(struct Entity* entity, int entitySize)
 {
-    for(int i = 0; i < COIN_COUNT; i++)
+    for(int i = 0; i < entitySize; i++)
     {
-        if ((coinArray + i)->visible == true)
-        {
-        mvaddch((coinArray + i) -> pos.y, (coinArray + i) -> pos.x, (coinArray + i) -> ch | (coinArray + i)-> color);
-        }
-
+        mvaddch((entity + i) -> pos.y, (entity + i) -> pos.x, (entity + i) -> ch | (entity + i)-> color);
     }
 }
 
-void allDraw()
+void allDraw(struct Entity* entity, int entitySize)
 {
     clear();    // clears the screen before refreshing
     mapDrawing(); // renders the game map
     entityDrawing(player);
-    coinDrawing(); // temporary testing function (replace later)
-    entityDrawing(orc); // orc is similar to player
+    coinDrawing(entity, entitySize); // temporary testing function (replace later)
     infoBoxDraw(); // UI element rendering for controls info
 }
 

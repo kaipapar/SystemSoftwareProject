@@ -14,6 +14,7 @@ Create enemy entity
     inherits from entity struct, 
 
 */
+
 struct Entity* enemyCreation()
 {
     struct Entity* orc = calloc(1, sizeof(struct Entity));
@@ -42,8 +43,8 @@ struct Entity* enemyCreation()
 }
 /*
 void enemyPathFinding()
-{     http://www.roguebasin.com/index.php/Quick_Pathfinding_in_a_Dungeon  
-      Find path between enemy and player  
+{     //http://www.roguebasin.com/index.php/Quick_Pathfinding_in_a_Dungeon  
+      //Find path between enemy and player  
     //  Using BFS
     int originX = orc -> pos.x;
     int originY = orc -> pos.y;
@@ -91,8 +92,4 @@ void enemyPathFinding()
         }
     }
 
-}
-*/
-
-
-
+}*/

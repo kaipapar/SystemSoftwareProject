@@ -8,101 +8,66 @@
 */
 
 #include "Rogue.h"
-
-#define STACKLIMIT 100
-
-int top = -1;
-int inp_array[STACKLIMIT] = {0};
-void push();
-void pop();
-void show();
 /*
-int main()
+struct Stack* stackCreation()
 {
-    int choice;
+    struct Stack* stack = calloc(1, sizeof(struct Stack));
+    stack->top = -1;
+    
+    return stack;
+}
 
-    while (1)
-    {
-        printf("\nPerform operations on the stack:");
-        printf("\n1.Push the element\n2.Pop the element\n3.Show\n4.End");
-        printf("\n\nEnter the choice: ");
-        scanf("%d", &choice);
 
-        switch (choice)
-        {
-        case 1:
-            push();
-            break;
-        case 2:
-            pop();
-            break;
-        case 3:
-            show();
-            break;
-        case 4:
-            exit(0);
-
-        default:
-            printf("\nInvalid choice!!");
-        }
-    }
-}*/
-
-void push()
+void push(struct Stack *stack, struct Tile tile)
 {
-    int x;
-
-    if (top == SIZE - 1)
+    if (isFull(stack))
     {
         printf("\nOverflow!!");
     }
     else
     {
-        printf("\nEnter the element to be added onto the stack: ");
-        scanf("%d", &x);
-        top = top + 1;
-        inp_array[top] = x;
+        stack->data[stack->top] = tile;
+        stack->top++;
     }
 }
 
-void pop()
+void pop(struct Stack *stack)
 {
-    if (top == -1)
+    if (isEmpty(stack))
     {
         printf("\nUnderflow!!");
     }
     else
     {
-        printf("\nPopped element: %d", inp_array[top]);
-        top = top - 1;
+        stack->top--;
     }
 }
 
-void show()
+
+//  Returns the top element of the stack    
+struct Tile top(struct Stack *stack)
 {
-    if (top == -1)
+    return stack->data[stack->top];
+}
+
+//  Returns false if not empty  
+bool isEmpty(struct Stack *stack)
+{
+    int flag = false;
+    if (stack->top < 1)
     {
-        printf("\nUnderflow!!");
+        flag = true;
     }
-    else
+    return flag;
+}
+//  Returns false if not full   
+bool isFull(struct Stack *stack)
+{
+    int flag = false;
+    if (stack->top == STACKLIMIT)
     {
-        printf("\nElements present in the stack: \n");
-        for (int i = top; i >= 0; --i)
-            printf("%d\n", inp_array[i]);
+        flag = true;
     }
+    return flag;
 }
-
-int isEmpty()
-{
-
-}
-
-int isFull()
-{
-
-}
-
-int top()
-{
-    
-}
+*/

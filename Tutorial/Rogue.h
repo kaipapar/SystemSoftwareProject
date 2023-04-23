@@ -34,6 +34,9 @@ Description:    Header for rogue tutorial
 //  macros for item amounts
 #define COIN_COUNT 5
 
+// macro for stack datatype
+#define STACKLIMIT 200
+
 /*  Struct to store positions of "objects"  */
 struct Position
 {
@@ -50,6 +53,7 @@ struct Tile
     bool transparent; // Does the tile block FoV 
     bool visible; // Is the tile visible to player
     bool seen; // Rendered by the engine after the tile leaves player's FoV
+
     int found; // Needed for pathfinding
 };
 
@@ -82,12 +86,18 @@ INHERITS FROM ENTITY AND TILE
 
 */
 
-
+/*  Stack for pathfinding   */
+struct Stack
+{
+    int top;
+    struct Tile data[STACKLIMIT];   //Stack stores Tile 'objects' 
+};
 
 
 // Draw.c
 void mapDrawing();
 void entityDrawing(struct Entity* entity);
+void coinDrawing(struct Entity* entity, int entitySize);
 void allDraw();
 void infoBoxDraw();
 void menuDraw();
@@ -127,6 +137,16 @@ struct Entity* coinCreation();
 // Enemy.c
 struct Entity* enemyCreation();
 
+// Stack.c
+/*
+struct Stack* stackCreation();
+void push(struct Stack *stack, struct Tile tile);
+void pop(struct Stack *stack);
+void show(struct Stack *stack);
+struct Tile top(struct Stack *stack);
+bool isEmpty(struct Stack *stack);
+bool isFull(struct Stack *stack);
+*/
 extern struct Entity* player;  // are externs good policy?
 extern struct Tile** map;
 
