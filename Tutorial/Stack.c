@@ -6,7 +6,7 @@
 @Contact :   karri.korsu@edu.turkuamk.fi
 @Desc    :   None
 */
-
+/*
 #include "Rogue.h"
 /*
 struct Stack* stackCreation()
