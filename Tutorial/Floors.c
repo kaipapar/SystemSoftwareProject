@@ -12,7 +12,6 @@ Description:    Core of the floor system
 //Creates a struct with floor and map data of all floors to the MAPDEPTH
 struct Floor* generateFloor()
 {
-    int help = 0;   //Its not inefficient, its motivational
     struct Floor* floorArray = calloc(MAPDEPTH, sizeof(struct Floor));
 
     for(int i = 0; i < MAPDEPTH; i++)
