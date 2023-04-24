@@ -16,8 +16,8 @@ void createFOV(struct Entity* player)
     int radius = 15; // draw distance of the player
     struct Position target;
 
-    map[player->pos.y][player->pos.x].visible = true;
-    map[player->pos.y][player->pos.x].seen = true;
+    map[currentFloor][player->pos.y][player->pos.x].visible = true;
+    map[currentFloor][player->pos.y][player->pos.x].seen = true;
 
     for (y = player->pos.y - radius; y < player->pos.y + radius; y++)
     {
@@ -30,8 +30,8 @@ void createFOV(struct Entity* player)
 
             if (distance < radius && isInMap(y, x) && lineOfSight(player->pos, target))
             {
-                map[y][x].visible = true;
-                map[y][x].seen = true;
+                map[currentFloor][y][x].visible = true;
+                map[currentFloor][y][x].seen = true;
                 for (int i = 0; i < COIN_COUNT; i++)
                 {
                     if ((coinArray + i)->pos.y == y && (coinArray + i)->pos.x == x && (coinArray + i)->collected == false) 
@@ -61,7 +61,7 @@ void clearFOV(struct Entity* player)
         {
             if (isInMap(y,x))
             {
-                map[y][x].visible = false;
+                map[currentFloor][y][x].visible = false;
 
                 /*  clear fov of coins  */
                 for (int i = 0; i < COIN_COUNT; i++)
@@ -137,7 +137,7 @@ bool lineOfSight(struct Position origin, struct Position target)
     {
         t = yAbsDelta * 2 - xAbsDelta;
 
-        while (map[y][x].transparent)
+        while (map[currentFloor][y][x].transparent)
         {
             if (t >= 0)
             {
@@ -159,7 +159,7 @@ bool lineOfSight(struct Position origin, struct Position target)
     {
         t = xAbsDelta * 2 - yAbsDelta;
 
-        while (map[y][x].transparent)
+        while (map[currentFloor][y][x].transparent)
         {
             if (t >= 0)
             {

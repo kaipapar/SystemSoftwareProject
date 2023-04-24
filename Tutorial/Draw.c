@@ -16,13 +16,13 @@ void mapDrawing()
     {
         for (int x = 0; x < MAP_WIDTH; x++)
         {
-            if (map[y][x].visible)
+            if (map[currentFloor][y][x].visible)
             {
-                mvaddch(y, x, map[y][x].ch | map[y][x].color);
+                mvaddch(y, x, map[currentFloor][y][x].ch | map[currentFloor][y][x].color);
             }
-            else if (map[y][x].seen)
+            else if (map[currentFloor][y][x].seen)
             {
-                mvaddch(y, x, map[y][x].ch | COLOR_PAIR(SEEN_COLOR));
+                mvaddch(y, x, map[currentFloor][y][x].ch | COLOR_PAIR(SEEN_COLOR));
             }
             else
             {

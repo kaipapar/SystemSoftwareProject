@@ -121,6 +121,7 @@ void quitGame();
 struct Tile*** mapTileCreation();
 struct Position mapSetup();
 void releaseMap();
+struct Entity* stairsCreation();
 
 // Player.c
 struct Entity* playerCreation(struct Position posStart);
@@ -162,10 +163,14 @@ extern struct Tile*** map;
 
 extern struct Entity* coinArray;
 extern struct Entity* orc;
+extern struct Entity* stairs;
+
 
 extern int currentFloor;
 
 extern struct Floor* floorList;
+
+
 
 struct Floor* generateFloor();
 //void generateFloorList(int mapDepth);

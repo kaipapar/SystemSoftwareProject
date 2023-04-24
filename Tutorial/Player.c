@@ -60,7 +60,7 @@ void inputHandling(int input)
 /*  Checks whether movement over a certain block is allowed */
 void playerMovement(struct Position newPos)
 {
-    if (map[newPos.y][newPos.x].walkable)
+    if (map[currentFloor][newPos.y][newPos.x].walkable)
     {
         clearFOV(player);
         player->pos.y = newPos.y;

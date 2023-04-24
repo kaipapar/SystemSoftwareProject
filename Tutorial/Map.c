@@ -84,3 +84,31 @@ void releaseMap()
     }
     free(map);
 }
+
+struct Entity* stairsCreation()
+{
+    struct Entity* stairs = calloc(1, sizeof(struct Entity));
+
+    stairs -> ch = '<';
+    stairs -> color = COLOR_PAIR(COIN_COLOR);
+    stairs -> visible = false;
+    stairs -> transparent = false;
+    stairs -> points = 1000;
+
+    int flag = 0;
+
+    while (true)
+    {
+        int randomx = rand() % 100;
+        int randomy = rand() % 25;
+
+        if (map[currentFloor][randomy][randomx].walkable && flag == 0)
+        {
+            stairs -> pos.x = randomx;
+            stairs -> pos.y = randomy;
+            flag = 1;
+            break;
+        }
+    }
+    return stairs;
+}

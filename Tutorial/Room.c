@@ -29,9 +29,9 @@ void addRoomToMap(struct Room room)
     {
         for (int x = room.pos.x; x < room.pos.x + room.roomWidth; x++)
         {
-            map[y][x].ch = '.';
-            map[y][x].walkable = true;
-            map[y][x].transparent = true;
+            map[currentFloor][y][x].ch = '.';
+            map[currentFloor][y][x].walkable = true;
+            map[currentFloor][y][x].transparent = true;
         }
     }
 }
@@ -67,8 +67,8 @@ void roomConnections(struct Position centerSelf, struct Position centerOther)
             break;
         }
         
-        map[temp.y][temp.x].ch = '.';
-        map[temp.y][temp.x].walkable = true;
-        map[temp.y][temp.x].transparent = true;
+        map[currentFloor][temp.y][temp.x].ch = '.';
+        map[currentFloor][temp.y][temp.x].walkable = true;
+        map[currentFloor][temp.y][temp.x].transparent = true;
     }
 }

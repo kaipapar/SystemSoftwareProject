@@ -7,7 +7,7 @@ Description:    main file for rogue tutorial
 #include "Rogue.h"
 
 struct Entity* player;
-struct Tile** map;
+struct Tile*** map;
 struct Entity* coinArray;
 struct Entity* orc;
 
@@ -36,6 +36,8 @@ int main()
     coinArray = coinCreation();
     
     orc = enemyCreation();
+
+    //stairs = stairsCreation();
 
     menuDraw(); // --> Engine.c/Gameloop starts
 
