@@ -17,12 +17,17 @@ int main()
 {   
     struct Position posStart;
     
+    int x = 5;
+    int currentFloor = 0;
+    extern struct Floor* floorList; 
+
     setupCurses();
     
     time_t t = 0;
 	srand((unsigned) time(&t));
     
     map = mapTileCreation();
+    //map = floorArray[currentFloor].map;
     posStart = mapSetup();  
 
     player = playerCreation(posStart);

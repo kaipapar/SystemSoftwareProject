@@ -82,6 +82,10 @@ INHERITS FROM ENTITY AND TILE
 
 */
 
+struct Floor 
+{
+    struct Tile** map;
+};
 
 
 
@@ -132,6 +136,41 @@ extern struct Tile** map;
 
 extern struct Entity* coinArray;
 extern struct Entity* orc;
+
+
+
+extern struct Floor* floorList;
+
+struct Floor* generateFloor();
+//void generateFloorList(int mapDepth);
+//void freeFloorList(int mapDepth);
+
+
+
+//Floor.c
+/*
+struct Floor 
+{
+    struct Tile** map;
+};
+
+extern struct Floor* floorList;
+struct Floor generateFloor();
+void generateFloorList(int mapDepth);
+void freeFloorList(int mapDepth);
+
+//struct Floor generateFloor();
+//_________________________________________
+struct Floor {
+    struct Tile** map;
+};
+
+extern struct Floor* floorList;
+
+struct Floor generateFloor();
+void generateFloorList(int mapDepth);
+void freeFloorList(int mapDepth);
+*/
 
 
 #endif
