@@ -1,6 +1,6 @@
 /*
 File:           Main.c
-Author:         Karri Korsu
+Author:         Karri Korsu, Nestori Heiskanen
 Description:    main file for rogue tutorial
 */
 
@@ -25,9 +25,11 @@ int main()
     
     time_t t = 0;
 	srand((unsigned) time(&t));
-    
-    map = mapTileCreation();
-    //map = floorArray[currentFloor].map;
+
+    floorList = generateFloor();
+
+    map = (floorList + currentFloor)->map;
+
     posStart = mapSetup();  
 
     player = playerCreation(posStart);

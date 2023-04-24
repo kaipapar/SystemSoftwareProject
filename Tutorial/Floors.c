@@ -1,10 +1,18 @@
+/*
+File:           Floors.c
+Author:         Nestori Heiskanen
+Description:    Core of the floor system
+*/
+
 #include "Rogue.h"
 
 #define MAPDEPTH 5
 
+
+//Creates a struct with floor and map data of all floors to the MAPDEPTH
 struct Floor* generateFloor()
 {
-    int help = 0;   
+    int help = 0;   //Its not inefficient, its motivational
     struct Floor* floorArray = calloc(MAPDEPTH, sizeof(struct Floor));
 
     for(int i = 0; i < MAPDEPTH; i++)

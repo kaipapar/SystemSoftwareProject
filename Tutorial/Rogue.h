@@ -1,6 +1,6 @@
 /*
 File:           Rogue.h
-Author:         Karri Korsu
+Authors:        Karri Korsu, Nestori Heiskanen, Joona Luttinen 
 Description:    Header for rogue tutorial
 */
 
