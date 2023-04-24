@@ -40,7 +40,7 @@ void gameLoop()
     {       
 
         ch = getch();   
-        if(ch == KEY_F(1))
+        if(ch == KEY_F(2))
         {
             break;
             quitGame();

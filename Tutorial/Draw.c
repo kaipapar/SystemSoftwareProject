@@ -77,7 +77,7 @@ void infoBoxDraw()
     char hintBoxContent[] = "RoCue is a roguelike game \n"
                             "where you battle creeps! \n"
                             "Movement - WASD \n"
-                            "Quit - F1 \n"
+                            "Quit - F2 \n"
                             "Interact - Q \n"
                             "Inventory - E";
     mvwprintw(subwindow, 1, 1, "Welcome to RoCue\n %s \n Y: %d, X: %d \n Points: %d", &hintBoxContent,player->pos.y, player->pos.x, player->points);
