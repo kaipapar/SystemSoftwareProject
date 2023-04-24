@@ -166,7 +166,7 @@ extern struct Entity* orc;
 extern struct Entity* stairs;
 
 
-extern int currentFloor;
+extern int currentFloor; // Not the same var as the other references... why?
 
 extern struct Floor* floorList;
 
