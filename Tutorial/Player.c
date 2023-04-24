@@ -7,6 +7,8 @@
 @Desc    :   None
 */
 #include "Rogue.h"
+
+struct Position posStart;
 /*                       CREATE CUSTOM  STRUCT FOR PLAYER WHICH INHERITS ENTITY STRUCT       */
 struct Entity* playerCreation(struct Position posStart)
 {
@@ -93,6 +95,19 @@ void interact()
             }
             orc->collected = true;
         }
+    //____________________________________
+        else if (player->pos.y == stairs->pos.y && player->pos.x == stairs->pos.x)
+        {
+            if (currentFloor == 6)
+            {
+                currentFloor--;
+            } 
+            currentFloor++;
+            posStart = mapSetup();  
+            player = playerCreation(posStart);
+            coinArray = coinCreation();
+            orc = enemyCreation();
+            stairs = stairsCreation();
+        }
     }
-
 }

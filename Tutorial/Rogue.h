@@ -28,7 +28,7 @@ Description:    Header for rogue tutorial
 #define COIN_COLOR 1
 
 //  macros for map dimensions
-#define MAP_DEPTH 5
+#define MAP_DEPTH 7
 #define MAP_HEIGHT 25
 #define MAP_WIDTH 100
 
@@ -97,13 +97,6 @@ INHERITS FROM ENTITY AND TILE
 
 */
 
-struct Floor 
-{
-    struct Tile** map;
-};
-
-
-
 // Draw.c
 void mapDrawing();
 void entityDrawing(struct Entity* entity);
@@ -166,42 +159,8 @@ extern struct Entity* orc;
 extern struct Entity* stairs;
 
 
-extern int currentFloor; // Not the same var as the other references... why?
+extern int currentFloor;
 
-extern struct Floor* floorList;
-
-
-
-struct Floor* generateFloor();
-//void generateFloorList(int mapDepth);
-//void freeFloorList(int mapDepth);
-
-
-
-//Floor.c
-/*
-struct Floor 
-{
-    struct Tile** map;
-};
-
-extern struct Floor* floorList;
-struct Floor generateFloor();
-void generateFloorList(int mapDepth);
-void freeFloorList(int mapDepth);
-
-//struct Floor generateFloor();
-//_________________________________________
-struct Floor {
-    struct Tile** map;
-};
-
-extern struct Floor* floorList;
-
-struct Floor generateFloor();
-void generateFloorList(int mapDepth);
-void freeFloorList(int mapDepth);
-*/
-
+extern struct Position posStart;
 
 #endif

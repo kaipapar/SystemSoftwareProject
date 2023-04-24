@@ -6,12 +6,15 @@ Description:    main file for rogue tutorial
 
 #include "Rogue.h"
 
+int currentFloor = 0;
+ 
+
 struct Entity* player;
 struct Tile*** map;
 struct Entity* coinArray;
 struct Entity* orc;
+struct Entity* stairs;
 
-currentFloor = 0;
 
 int main()
 {   
@@ -20,6 +23,7 @@ int main()
     //int currentFloor = 0; //To be used in a future update
     //extern struct Floor* floorList; 
 
+    
     setupCurses();
     
     time_t t = 0;
@@ -37,7 +41,7 @@ int main()
     
     orc = enemyCreation();
 
-    //stairs = stairsCreation();
+    stairs = stairsCreation();
 
     menuDraw(); // --> Engine.c/Gameloop starts
 

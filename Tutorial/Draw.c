@@ -64,6 +64,7 @@ void allDraw()
     entityDrawing(player);
     coinDrawing(); // temporary testing function (replace later)
     entityDrawing(orc); // orc is similar to player
+    entityDrawing(stairs);
     infoBoxDraw(); // UI element rendering for controls info
 }
 
@@ -78,9 +79,9 @@ void infoBoxDraw()
                             "where you battle creeps! \n"
                             "Movement - WASD \n"
                             "Quit - F2 \n"
-                            "Interact - Q \n"
+                            "Interact - I \n"
                             "Inventory - E";
-    mvwprintw(subwindow, 1, 1, "Welcome to RoCue\n %s \n Y: %d, X: %d \n Points: %d", hintBoxContent,player->pos.y, player->pos.x, player->points);
+    mvwprintw(subwindow, 1, 1, "Welcome to RoCue\n %s \n Y: %d, X: %d \n Floor: %d", hintBoxContent,player->pos.y, player->pos.x, currentFloor);
     //mvwprintw(subwindow,1,1,"Player y position: %d, x position: %d",);
     refresh();
     wrefresh(subwindow);

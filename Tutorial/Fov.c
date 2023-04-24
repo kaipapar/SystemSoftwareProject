@@ -44,6 +44,11 @@ void createFOV(struct Entity* player)
                 {
                     orc -> visible = true;
                 }
+
+                if (stairs -> pos.y == y && stairs -> pos.x == x && stairs->collected == false)
+                {
+                    stairs -> visible = true;
+                }
             }/*  Yes I know there is 3 nested for loops  */
         }
     }
@@ -80,6 +85,10 @@ void clearFOV(struct Entity* player)
                 if (orc -> pos.y == y && orc -> pos.x == x)
                 {
                     orc -> visible = false;
+                }
+                if (stairs -> pos.y == y && stairs -> pos.x == x)
+                {
+                    stairs -> visible = false;
                 }
             }
         }

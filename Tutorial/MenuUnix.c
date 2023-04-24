@@ -44,7 +44,7 @@ void menuDraw()
 	myMenu = new_menu((ITEM **)myItems);
     set_menu_mark(myMenu, " * ");
 
-	mvprintw(LINES - 2, 0, "F1 to Exit, Arrow-Right to select");
+	mvprintw(LINES - 2, 0, "F2 to Exit, Arrow-Right to select");
 	post_menu(myMenu);
     
 	refresh();
@@ -82,7 +82,7 @@ void menuDraw()
 
                 unpost_menu(myMenu);
 				break;
-			case KEY_F(1):
+			case KEY_F(2):
 				free_item(myItems[0]);
 				free_item(myItems[1]);
 				//free_menu(my_menu);

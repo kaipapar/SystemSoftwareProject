@@ -20,7 +20,7 @@ struct Tile*** mapTileCreation()
         tiles[z] = calloc(MAP_WIDTH, sizeof(struct Tile*));
         for (int y = 0; y < MAP_HEIGHT; y++)
         {
-            tiles[y] = calloc(MAP_WIDTH, sizeof(struct Tile));
+            tiles[z][y] = calloc(MAP_WIDTH, sizeof(struct Tile));
 
             for (int x = 0; x < MAP_WIDTH; x++)
             {
@@ -78,11 +78,7 @@ struct Position mapSetup()
 // Frees the map array from memory
 void releaseMap()
 {
-    for (int y = 0; y < MAP_HEIGHT; y++)
-    {
-        free(map[currentFloor][y]);
-    }
-    free(map);
+    free(map[currentFloor]);
 }
 
 struct Entity* stairsCreation()
@@ -91,7 +87,7 @@ struct Entity* stairsCreation()
 
     stairs -> ch = '<';
     stairs -> color = COLOR_PAIR(COIN_COLOR);
-    stairs -> visible = false;
+    stairs -> visible = true;
     stairs -> transparent = false;
     stairs -> points = 1000;
 
