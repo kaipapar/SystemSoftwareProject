@@ -44,7 +44,7 @@ void inputHandling(int input)
         case 'd':
             newPos.x++;
             break;
-        case KEY_F(1):
+        case KEY_F(2):
             quitGame();
             break;
         case 'i':
