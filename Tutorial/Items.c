@@ -27,7 +27,7 @@ struct Entity* coinCreation()
         int randomx = rand() % 100;
         int randomy = rand() % 25;
 
-        if(map[randomy][randomx].walkable)
+        if(map[currentFloor][randomy][randomx].walkable)
         {
             (coinArray + help) -> pos.y = randomy;
             (coinArray + help) -> pos.x = randomx;

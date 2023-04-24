@@ -28,6 +28,7 @@ Description:    Header for rogue tutorial
 #define COIN_COLOR 1
 
 //  macros for map dimensions
+#define MAP_DEPTH 5
 #define MAP_HEIGHT 25
 #define MAP_WIDTH 100
 
@@ -117,7 +118,7 @@ void quitGame();
 
 
 // Map.c
-struct Tile** mapTileCreation();
+struct Tile*** mapTileCreation();
 struct Position mapSetup();
 void releaseMap();
 
@@ -157,12 +158,12 @@ void visit(struct Queue *queue);
 
 
 extern struct Entity* player;  // are externs good policy?
-extern struct Tile** map;
+extern struct Tile*** map;
 
 extern struct Entity* coinArray;
 extern struct Entity* orc;
 
-
+extern int currentFloor;
 
 extern struct Floor* floorList;
 

@@ -11,7 +11,7 @@ struct Tile** map;
 struct Entity* coinArray;
 struct Entity* orc;
 
-
+currentFloor = 0;
 
 int main()
 {   

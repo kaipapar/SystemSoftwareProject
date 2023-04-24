@@ -10,24 +10,28 @@
 
 #include "Rogue.h"
 
-/*  Creates a 2d array of tiles for the map, returns pointer to pointer */
-struct Tile** mapTileCreation()
+/*  Creates a 3d array of tiles for the map, returns pointer to pointer to pointer*/
+struct Tile*** mapTileCreation()
 {
-    struct Tile** tiles = calloc(MAP_HEIGHT, sizeof(struct Tile*));
+    struct Tile*** tiles = calloc(MAP_HEIGHT, sizeof(struct Tile**));
 
-    for (int y = 0; y < MAP_HEIGHT; y++)
+    for (int z = 0; z < MAP_DEPTH; z++)
     {
-        tiles[y] = calloc(MAP_WIDTH, sizeof(struct Tile));
-
-        for (int x = 0; x < MAP_WIDTH; x++)
+        tiles[z] = calloc(MAP_WIDTH, sizeof(struct Tile*));
+        for (int y = 0; y < MAP_HEIGHT; y++)
         {
-            tiles[y][x].ch = '#';   // walls
-            tiles[y][x].color = COLOR_PAIR(VISIBLE_COLOR);
-            tiles[y][x].walkable = false;
-            tiles[y][x].transparent = false;
-            tiles[y][x].visible = false;
-            tiles[y][x].seen = false;
-            tiles[y][x].found = 0;
+            tiles[y] = calloc(MAP_WIDTH, sizeof(struct Tile));
+
+            for (int x = 0; x < MAP_WIDTH; x++)
+            {
+                tiles[z][y][x].ch = '#';   // walls
+                tiles[z][y][x].color = COLOR_PAIR(VISIBLE_COLOR);
+                tiles[z][y][x].walkable = false;
+                tiles[z][y][x].transparent = false;
+                tiles[z][y][x].visible = false;
+                tiles[z][y][x].seen = false;
+                tiles[z][y][x].found = 0;
+            }
         }
     }
     return tiles;
@@ -76,7 +80,7 @@ void releaseMap()
 {
     for (int y = 0; y < MAP_HEIGHT; y++)
     {
-        free(map[y]);
+        free(map[currentFloor][y]);
     }
     free(map);
 }
