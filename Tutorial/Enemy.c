@@ -53,7 +53,7 @@ void enemyPathFinding()
     int targetX = player -> pos.x;
     int targetY = player -> pos.y;
 
-    int weight = 0;
+    //int weight = 0; //To be used in a future update
 
     int currentX = 0;
     int currentY = 0;
@@ -70,21 +70,21 @@ void enemyPathFinding()
     {
         if (currentX-- == 0 && map[currentY][currentX--].walkable == true)
         {   // operate on (x-1,y)
-            map[currentY][currentX--].found = map[currentY][currentX].found++;
+            map[currentY][currentX-1].found = map[currentY][currentX].found++;
             
 
         }
         else if (currentX++ == 0 && map[currentY][currentX++].walkable == true)
         {   //operate on (x+1,y)
-            map[currentY][currentX++].found = map[currentY][currentX].found++;
+            map[currentY][currentX+1].found = map[currentY][currentX].found++;
         }
         else if (currentY++ == 0 && map[currentY++][currentX].walkable == true)
         {   // operate on (x,y+1)
-            map[currentY++][currentX].found = map[currentY][currentX].found++;
+            map[currentY+1][currentX].found = map[currentY][currentX].found++;
         }
         else if (currentY-- == 0 && map[currentY--][currentX].walkable == true)
         {   // operate on (x,y-1)
-            map[currentY--][currentX].found = map[currentY][currentX].found++;
+            map[currentY-1][currentX].found = map[currentY][currentX].found++;
         
         }
         else    
