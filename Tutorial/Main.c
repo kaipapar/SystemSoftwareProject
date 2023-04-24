@@ -19,16 +19,17 @@ int main()
     
     int x = 5;
     int currentFloor = 0;
-    //extern struct Floor* floorList; 
+    
 
     setupCurses();
     
     time_t t = 0;
 	srand((unsigned) time(&t));
 
-    //floorList = generateFloor();
+    floorList = generateFloors();
 
-    map = mapTileCreation();
+    //map = mapTileCreation(); //struct Tile **map
+    map = (floorList + 0);
 
     posStart = mapSetup();  
 
