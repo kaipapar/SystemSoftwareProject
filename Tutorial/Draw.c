@@ -80,7 +80,7 @@ void infoBoxDraw()
                             "Quit - F2 \n"
                             "Interact - Q \n"
                             "Inventory - E";
-    mvwprintw(subwindow, 1, 1, "Welcome to RoCue\n %s \n Y: %d, X: %d \n Points: %d", &hintBoxContent,player->pos.y, player->pos.x, player->points);
+    mvwprintw(subwindow, 1, 1, "Welcome to RoCue\n %s \n Y: %d, X: %d \n Points: %d", hintBoxContent,player->pos.y, player->pos.x, player->points);
     //mvwprintw(subwindow,1,1,"Player y position: %d, x position: %d",);
     refresh();
     wrefresh(subwindow);

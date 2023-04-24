@@ -17,8 +17,7 @@ int main()
 {   
     struct Position posStart;
     
-    int x = 5;
-    int currentFloor = 0;
+    //int currentFloor = 0; //To be used in a future update
     //extern struct Floor* floorList; 
 
     setupCurses();
