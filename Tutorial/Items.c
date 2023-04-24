@@ -18,6 +18,8 @@ struct Entity* coinCreation()
         (coinArray + i) -> color = COLOR_PAIR(COIN_COLOR);
         (coinArray + i) -> visible = false;
         (coinArray + i) -> transparent = false;
+        (coinArray + i) -> value = rand() % 1000 + 500;
+        (coinArray + i) -> collected = false;
     }
 
     while (true)

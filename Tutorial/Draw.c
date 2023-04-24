@@ -39,6 +39,10 @@ void entityDrawing(struct Entity* entity)
         mvaddch(entity->pos.y, entity->pos.x, entity->ch | entity->color);  
         //arguments (y,x,affected item)
     }
+    if (entity -> points < 0)
+    {
+        entity -> collected = true;
+    }
 }
 
 void coinDrawing()
@@ -66,7 +70,7 @@ void allDraw()
 void infoBoxDraw()
 {
         /*  Subwindow for printing game information */
-    WINDOW* subwindow = newwin(10,30,5,100);
+    WINDOW* subwindow = newwin(12,30,5,100);
     refresh();
     box(subwindow,0,0);
 
@@ -76,7 +80,7 @@ void infoBoxDraw()
                             "Quit - F1 \n"
                             "Interact - Q \n"
                             "Inventory - E";
-    mvwprintw(subwindow, 1, 1, "Welcome to RoCue\n %s \n Y: %d, X: %d", &hintBoxContent,player->pos.y, player->pos.x);
+    mvwprintw(subwindow, 1, 1, "Welcome to RoCue\n %s \n Y: %d, X: %d \n Points: %d", &hintBoxContent,player->pos.y, player->pos.x, player->points);
     //mvwprintw(subwindow,1,1,"Player y position: %d, x position: %d",);
     refresh();
     wrefresh(subwindow);

@@ -22,6 +22,7 @@ struct Entity* enemyCreation()
     orc -> color = COLOR_PAIR(COIN_COLOR);
     orc -> visible = false;
     orc -> transparent = false;
+    orc -> points = 1000;
 
     int flag = 0;
 
@@ -40,14 +41,15 @@ struct Entity* enemyCreation()
     }
     return orc;
 }
-/*
+
 void enemyPathFinding()
-{     http://www.roguebasin.com/index.php/Quick_Pathfinding_in_a_Dungeon  
-      Find path between enemy and player  
+{     //http://www.roguebasin.com/index.php/Quick_Pathfinding_in_a_Dungeon  
+      //Find path between enemy and player, activated when orc sees player
     //  Using BFS
+    // orc position
     int originX = orc -> pos.x;
     int originY = orc -> pos.y;
-
+    // player position
     int targetX = player -> pos.x;
     int targetY = player -> pos.y;
 
@@ -60,27 +62,34 @@ void enemyPathFinding()
 
     // mark adjacent positions with weight + 1
     // adjacent --> current; --y, --x, ++x, ++y
-    while (true)
+    struct Queue* queue = queueCreation();
+    enqueue(queue, map[originY][originX]);
+    visit(queue);
+
+    while (isEmpty(queue) == 0)
     {
         if (currentX-- == 0 && map[currentY][currentX--].walkable == true)
         {   // operate on (x-1,y)
+            map[currentY][currentX--].found = map[currentY][currentX].found++;
             
+
         }
         else if (currentX++ == 0 && map[currentY][currentX++].walkable == true)
         {   //operate on (x+1,y)
-
+            map[currentY][currentX++].found = map[currentY][currentX].found++;
         }
         else if (currentY++ == 0 && map[currentY++][currentX].walkable == true)
         {   // operate on (x,y+1)
-
+            map[currentY++][currentX].found = map[currentY][currentX].found++;
         }
         else if (currentY-- == 0 && map[currentY--][currentX].walkable == true)
         {   // operate on (x,y-1)
+            map[currentY--][currentX].found = map[currentY][currentX].found++;
         
         }
-        else if ()
+        else    
         {
-
+            
         }
 
 
@@ -90,9 +99,8 @@ void enemyPathFinding()
             break;
         }
     }
-
 }
-*/
+
 
 
 
