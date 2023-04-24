@@ -1,7 +1,7 @@
 /*
 @File    :   Draw.c
 @Time    :   14.04.2023 18:36:51
-@Author  :   Karri Korsu
+@Author  :   Karri Korsu, Nestori Heiskanen
 @Version :   1.0
 @Contact :   karri.korsu@edu.turkuamk.fi
 @Desc    :   None
@@ -71,7 +71,7 @@ void allDraw()
 void infoBoxDraw()
 {
         /*  Subwindow for printing game information */
-    WINDOW* subwindow = newwin(12,30,5,100);
+    WINDOW* subwindow = newwin(13,30,5,100);
     refresh();
     box(subwindow,0,0);
 
@@ -81,7 +81,7 @@ void infoBoxDraw()
                             "Quit - F2 \n"
                             "Interact - I \n"
                             "Inventory - E";
-    mvwprintw(subwindow, 1, 1, "Welcome to RoCue\n %s \n Y: %d, X: %d \n Floor: %d", hintBoxContent,player->pos.y, player->pos.x, currentFloor);
+    mvwprintw(subwindow, 1, 1, "Welcome to RoCue\n %s \n Y: %d, X: %d \n Floor: %d \n Points: %d", hintBoxContent,player->pos.y, player->pos.x, currentFloor, player -> points);
     //mvwprintw(subwindow,1,1,"Player y position: %d, x position: %d",);
     refresh();
     wrefresh(subwindow);

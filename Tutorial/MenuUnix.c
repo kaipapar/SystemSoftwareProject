@@ -17,7 +17,7 @@ void menuDraw()
     //WINDOW* menuWin = newwin(0,0,MAP_HEIGHT,MAP_WIDTH);
     //box(menuWin,0,0);
     refresh();
-    ITEM **myItems[5];
+    ITEM *myItems[5];
 	int c = 0;				
 	MENU *myMenu;  // Cannot be initialized to null, causes seg fault
 	int nChoices = 5;

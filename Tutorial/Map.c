@@ -1,7 +1,7 @@
 /*
 @File    :   Map.c
 @Time    :   14.04.2023 18:28:12
-@Author  :   Karri Korsu
+@Author  :   Karri Korsu, Nestori Heiskanen
 @Version :   1.0
 @Contact :   karri.korsu@edu.turkuamk.fi
 @Desc    :   None
